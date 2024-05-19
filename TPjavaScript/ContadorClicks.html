@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Clicks</title>
+    <style>
+        .contador {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="boton">Haz clic aquí</button>
+    <button id="Reiniciar">Reiniciar Contador</button>
+    <p class="contador">Número de clicks: <span id="contador">
+        0</span></p>
+  
+
+    <script>
+        var boton = document.getElementById("boton");
+        var contador = document.getElementById("contador");
+        
+        var count = 0;
+        
+        boton.addEventListener("click", function() {
+
+            count++;
+
+            contador.textContent = count;
+        });
+
+        Reiniciar.addEventListener("click", function(){
+            count = 0;
+            contador.textContent = count;
+            alert("Reiniciaste el contador de clicks");
+        })
+
+    </script>
+</body>
+</html>
+
+
+
+
+/* Crea un botón en HTML con un contador de clicks. Cada vez que se haga clic en el 
+botón, se debería incrementar el contador y mostrar el número de clicks en la 
+página. */

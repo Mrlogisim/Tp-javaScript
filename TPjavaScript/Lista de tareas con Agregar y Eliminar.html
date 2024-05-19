@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tareas</title>
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>Lista de Tareas</h1>
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Nueva tarea...">
+      <button id="addTaskBtn">Agregar Tarea</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+
+        addTaskBtn.addEventListener('click', () => {
+            const taskText = taskInput.value.trim();
+            if (taskText !== '') {
+            addTask(taskText);
+            taskInput.value = '';
+            taskInput.focus();
+            }
+        });
+
+        function addTask(taskText) {
+            const li = document.createElement('li');
+            li.textContent = taskText;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Eliminar';
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.addEventListener('click', () => {
+            taskList.removeChild(li);
+            });
+
+            li.appendChild(deleteBtn);
+            taskList.appendChild(li);
+        }
+    });
+    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Imágenes</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <div class="gallery">
+    <button id="prevBtn">Anterior</button>
+    <img id="galleryImage" src="imagenes/playa.jpg" alt="Imagen de la galería">
+    <button id="nextBtn">Siguiente</button>
+  </div>
+
+
+
+  <script>
+
+    const images = [
+        'imagenes/playa.jpg',
+        'imagenes/montaña.jpeg',
+        'imagenes/treeb.png'
+    ];
+
+    let currentIndex = 0;
+
+    const galleryImage = document.getElementById('galleryImage');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showImage(index) {
+        galleryImage.src = images[index];
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    });
+
+
+    showImage(currentIndex);
+
+
+  </script>
+
+
+</body>
+</html>
